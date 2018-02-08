@@ -4,13 +4,14 @@
 # All Rights Reserved.
 
 from __future__ import unicode_literals
+from __future__ import absolute_import
 
 from django.db import migrations, models
 from django.conf import settings
 import awx.main.fields
 
-import _squashed
-from _squashed_30 import SQUASHED_30
+from . import _squashed
+from ._squashed_30 import SQUASHED_30
 
 
 class Migration(migrations.Migration):

@@ -26,6 +26,7 @@ Generates dynamic inventory for Tower
 
 Author: Matthew Jones (@matburt)
 """
+from __future__ import print_function
 
 import argparse
 import re
@@ -103,9 +104,9 @@ def read_tower_inventory(tower_host, tower_user, tower_pass, inventory, license_
             return response.json()
         json_reason = response.json()
         reason = json_reason.get('detail', 'Retrieving Tower Inventory Failed')
-    except requests.ConnectionError, e:
+    except requests.ConnectionError as e:
         reason = "Connection to remote host failed: {}".format(e)
-    except json.JSONDecodeError, e:
+    except json.JSONDecodeError as e:
         reason = "Failed to parse json from host: {}".format(e)
     raise RuntimeError(reason)
 

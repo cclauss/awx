@@ -1,3 +1,4 @@
+from __future__ import print_function
 import os
 import shutil
 import subprocess
@@ -41,7 +42,7 @@ class Command(BaseCommand):
                 run.open_fifo_write(ssh_key_path, settings.AWX_ISOLATED_PRIVATE_KEY)
                 args = run.wrap_args_with_ssh_agent(args, ssh_key_path, ssh_auth_sock)
             try:
-                print ' '.join(args)
+                print(' '.join(args))
                 subprocess.check_call(args)
             except subprocess.CalledProcessError as e:
                 sys.exit(e.returncode)
